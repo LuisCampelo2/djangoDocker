@@ -1,0 +1,17 @@
+{% load static %}<header class='header'>
+    <div class="titulo">
+        <h1><a href="{% url "home:index" %}"><img src="{% static "img/logo_sinapse.png" %}" alt=""></a></h1>
+    </div>
+    <nav class="navegaçao">
+        {% if user.is_authenticated %}
+            <a href="{% url "home:meuPerfil" %}">{{user}}</a>
+            <a href="{% url "home:logout" %}">Sair da Conta</a>
+            <a href="{% url "home:update_view" %}">Editar conta</a>
+        {% else %}
+                <ul>
+                    <li><a href="{% url "home:cadastro" %}">Criar Conta</a></li>
+                    <li><a href="{% url "home:login" %}">Entrar</a></li>
+                </ul>
+            </nav>
+        {% endif %}
+</header>

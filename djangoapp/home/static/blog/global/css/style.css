@@ -1,0 +1,112 @@
+html, body {
+    height: 100%;
+    margin: 0; /* Remove margens padrão */
+    display: flex; /* Torna o body um container flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.header{
+    background-color:#02b8c9a4;
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Alinha o conteúdo ao centro */
+    color: white; /* Cor do texto */
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Coloca o cabeçalho no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* A largura será de 100% da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+.header li{
+    list-style: none;
+}
+
+.header img {
+    width: 150px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+.titulo a{
+    text-align: center;
+}
+
+.cadastramento{
+    display: flex;
+    background-color: gray;
+    border-radius: 210px;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    top: 50px;
+    height: 500px;
+}
+.navegaçao {
+    position: absolute; /* Torna a posição relativa ao header */
+    top: 20px; /* Ajusta a distância do topo do header */
+    right: 70px; /* Alinha ao lado direito com um espaçamento */
+    display: flex; /* Alinha os itens horizontalmente */
+    gap: 15px; /* Espaçamento entre os links */
+}
+
+.navegaçao a {
+    position: relative;
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: rgb(0, 0, 0); /* Ajusta a cor do texto */
+    font-weight: bold; /* Torna o texto mais visível */
+}
+.navegaçao a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+.navegaçao a:hover::after {
+    width: 100%; /* A linha aparece completamente */
+}
+
+
+.cadastro_cliente {
+    display: flex;
+    flex-direction: column; /* Organiza os itens em uma coluna */
+    gap: 10px; /* Espaçamento entre os itens do formulário */
+    width: 300px; /* Largura do formulário */
+    margin: 0 auto; /* Para centralizar o formulário na página */
+    
+}
+.login{
+    display: flex;
+    background-color: gray;
+    border-radius: 210px;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    top: 50px;
+    height: 500px;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+}
+.form_update{
+    display: flex;
+    flex-direction: column;
+}
+.update{
+    display: flex;
+    background-color: gray;
+    border-radius: 210px;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    top: 50px;
+    height: 500px;
+}
