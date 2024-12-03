@@ -1,10 +1,16 @@
+networks:
+  mynetwork:
+    driver: bridge
+
 services:
   djangoapp:
     container_name: djangoapp
     build:
       context: .
     ports:
-      - 8000:8000
+      - "8000:8000"
+    networks:
+      - mynetwork
     volumes:
       - ./djangoapp:/djangoapp
       - ./data/web/static:/data/web/static/
@@ -13,10 +19,20 @@ services:
       - ./dotenv_files/.env
     depends_on:
       - psql
+
   psql:
     container_name: psql
     image: postgres:13-alpine
+    networks:
+      - mynetwork
     volumes:
       - ./data/postgres/data:/var/lib/postgresql/data/
     env_file:
       - ./dotenv_files/.env
+
+
+
+
+
+
+      

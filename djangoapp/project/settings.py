@@ -96,14 +96,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'change-me'),
-        'NAME': os.getenv('POSTGRES_DB', 'change-me'),
-        'USER': os.getenv('POSTGRES_USER', 'change-me'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'change-me'),
-        'HOST': os.getenv('POSTGRES_HOST', 'change-me'),
-        'PORT': os.getenv('POSTGRES_PORT', 'change-me'),
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),  # Valor padrão
+        'NAME': os.getenv('POSTGRES_DB', 'blog_base_de_dados'),  # Valor padrão
+        'USER': os.getenv('POSTGRES_USER', 'blog_user'),  # Valor padrão
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'blog_user_password'),  # Valor padrão
+        'HOST': os.getenv('POSTGRES_HOST', 'localhost'),  # Valor padrão, mas no caso de Docker pode ser o nome do serviço
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),  # Valor padrão
     }
 }
+
 
 
 # Password validation
