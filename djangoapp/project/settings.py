@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     # Meu apps
     'home',
 
+    # Summernote
+    'django_summernote',
 
     # Axes app can be in any position in the INSTALLED_APPS list.
     'axes',
@@ -83,6 +85,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'site_setup.context_processors.context_processor_example',
+                'site_setup.context_processors.site_setup',
             ],
         },
     },
@@ -186,9 +190,10 @@ SUMMERNOTE_CONFIG = {
         '//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css',
     ),
     'attachment_filesize_limit': 30 * 1024 * 1024,
-    'attachment_model': 'blog.PostAttachment',
+
 }
 
 AXES_ENABLED = True
 AXES_FAILURE_LIMIT = 3
 AXES_COOLOFF_TIME = 1  # 1 Hora
+AXES_RESET_ON_SUCCESS = True

@@ -1,6 +1,4 @@
-networks:
-  mynetwork:
-    driver: bridge
+version: '3.9'
 
 services:
   djangoapp:
@@ -8,9 +6,7 @@ services:
     build:
       context: .
     ports:
-      - "8000:8000"
-    networks:
-      - mynetwork
+      - 8000:8000
     volumes:
       - ./djangoapp:/djangoapp
       - ./data/web/static:/data/web/static/
@@ -19,24 +15,13 @@ services:
       - ./dotenv_files/.env
     depends_on:
       - psql
-    command: /bin/sh -c "sleep 10 && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-
   psql:
     container_name: psql
     image: postgres:13-alpine
-    networks:
-      - mynetwork
     volumes:
       - ./data/postgres/data:/var/lib/postgresql/data/
     env_file:
       - ./dotenv_files/.env
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-
 
 
 
